@@ -3,7 +3,7 @@ import React, { useState } from "react";
 /** ---------- MODEL CONFIG ---------- */
 
 // Get API base URL from environment variable
-const API_BASE_URL = import.meta.env.API_URL;
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 // Build endpoint URLs
 const AID_API_BASE_URL = `${API_BASE_URL}/predict/aiddata`;
