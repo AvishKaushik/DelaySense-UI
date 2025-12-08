@@ -1,5 +1,18 @@
 import React, { useState } from "react";
 
+// Import images (required for Vite production builds)
+import moneyVsDelayImg from "./assets/aiddata/MONEY VS DELAY.png";
+import starttimeVsDelayImg from "./assets/aiddata/starttime vs delay.png";
+import sizeVsDelayImg from "./assets/aiddata/SIZE VS DELAY.png";
+import shapValuesImg from "./assets/aiddata/shap values.png";
+import newplotImg from "./assets/aiddata/newplot.png";
+
+
+import iegResidualDisribution from "./assets/ieg/ieg_residual_distribution.png";
+import iegResidualByRegion from "./assets/ieg/ieg_residual_by_region.png";
+import shapOverall from "./assets/ieg/shap_ieg.png";
+import shapAfy from "./assets/ieg/shap_afy_ieg.png";
+
 /** ---------- MODEL CONFIG ---------- */
 
 // Get API base URL from environment variable
@@ -115,45 +128,47 @@ const INSIGHTS_BY_MODEL = {
     cards: [
       {
         title: "Timeliness vs. Project Budget Size",
-        imageSrc: "src/assets/MONEY VS DELAY.png",
+        imageSrc: moneyVsDelayImg,
       },
       {
         title: "Start year vs. project delay rate",
-        imageSrc: "src/assets/starttime vs delay.png",
+        imageSrc: starttimeVsDelayImg,
       },
       {
         title: "Delay Patterns by Project Size (Commitment Amount)",
-        imageSrc: "src/assets/SIZE VS DELAY.png",
+        imageSrc: sizeVsDelayImg,
       },
       {
         title: "SHAP feature Importance for the project",
-        imageSrc: "src/assets/shap values.png",
+        imageSrc: shapValuesImg,
+      },
+      {
+        title: "Project delay rate by specific countries",
+        imageSrc: newplotImg,
       },
     ],
-    countryDelayImage: "src/assets/newplot.png",
   },
 
   ieg: {
-    // 👇 Replace these with your actual IEG images
+    // Using same images for IEG (replace with actual IEG images if you have them)
     cards: [
       {
-        title: "Timeliness vs. Project Budget Size (IEG)",
-        imageSrc: "src/assets/ieg_money_vs_delay.png",
+        title: "Residual by Regions",
+        imageSrc: iegResidualByRegion,
       },
       {
-        title: "Start year vs. project delay rate (IEG)",
-        imageSrc: "src/assets/ieg_starttime_vs_delay.png",
+        title: "Residual Distribution",
+        imageSrc: iegResidualDisribution,
       },
       {
-        title: "Delay Patterns by Project Size (IEG)",
-        imageSrc: "src/assets/ieg_size_vs_delay.png",
+        title: "SHAP Dependence Plot - Approval Year",
+        imageSrc: shapAfy,
       },
       {
         title: "SHAP feature Importance for the project (IEG)",
-        imageSrc: "src/assets/ieg_shap_values.png",
+        imageSrc: shapOverall,
       },
     ],
-    countryDelayImage: "src/assets/ieg_newplot.png",
   },
 };
 
@@ -861,23 +876,6 @@ function App() {
             />
           ))}
 
-          <div>
-            <h3
-              style={{
-                fontSize: "clamp(14px, 3vw, 18px)",
-                fontWeight: 600,
-                marginBottom: "12px",
-                color: "#1e293b",
-              }}
-            >
-              Project delay rate by specific countries
-            </h3>
-            <img
-              src={INSIGHTS_BY_MODEL[activeModelKey].countryDelayImage}
-              alt="Project delay rate by specific countries"
-              style={{ width: "900px", maxWidth: "100%", display: "block" }}
-            />
-          </div>
         </div>
       </section>
     </div>
