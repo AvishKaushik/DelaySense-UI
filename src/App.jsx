@@ -2,11 +2,12 @@ import React, { useState } from "react";
 
 /** ---------- MODEL CONFIG ---------- */
 
-// Existing AidData API
-const AID_API_BASE_URL = "http://127.0.0.1:8000/predict/aiddata";
+// Get API base URL from environment variable
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 
-// Example IEG API (replace with your real endpoint)
-const IEG_API_BASE_URL = "http://127.0.0.1:8000/predict/ieg"; // <- TODO: update
+// Build endpoint URLs
+const AID_API_BASE_URL = `${API_BASE_URL}/predict/aiddata`;
+const IEG_API_BASE_URL = `${API_BASE_URL}/predict/ieg`;
 
 // AidData form (your current one)
 const initialAidForm = {
