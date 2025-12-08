@@ -22,39 +22,40 @@ const API_BASE_URL = import.meta.env.VITE_API_URL;
 const AID_API_BASE_URL = `${API_BASE_URL}/predict/aiddata`;
 const IEG_API_BASE_URL = `${API_BASE_URL}/predict/ieg`;
 
-// AidData form (your current one)
+// AidData form - PREFILLED for demo/presentation
 const initialAidForm = {
-  donor: "",
-  recipient: "",
-  recipient_region: "",
-  coalesced_purpose_name: "",
-  flow_name: "",
-  commitment_amount_usd_constant: "",
-  total_project_cost: "",
-  start_date: "",
-  commitment_date: "",
-  proposed_end_date: "",
-  implementing_agency: "",
-  financing_agency: "",
-  title: "",
+  donor: "United States",
+  recipient: "Kenya",
+  recipient_region: "Africa",
+  coalesced_purpose_name: "Health",
+  flow_name: "ODA Grants",
+  commitment_amount_usd_constant: "5000000", // $5M - Change this for different results!
+  total_project_cost: "5500000",
+  start_date: "2020-01-15",
+  commitment_date: "2019-12-01",
+  proposed_end_date: "2023-06-30",
+  implementing_agency: "Ministry of Health",
+  financing_agency: "USAID",
+  title: "Kenya Health Systems Strengthening Project",
   is_multi_country: false,
 };
 
-// Example IEG form – adjust fields/names to match your IEG backend
+// IEG form - PREFILLED for demo/presentation
+// Based on actual training stats: DPF vs IPF is #1 most impactful feature!
 const initialIegForm = {
-  wb_region: "",
-  practice_group: "",
-  global_practice: "",
-  agreement_type: "",
-  lending_instrument_type: "",
-  country_lending_group: "",
-  implementing_agency: "",
-  project_name: "",
-  quality_at_entry: "",
-  quality_of_supervision: "",
-  bank_performance: "",
-  me_quality: "",
-  approval_fy: "",
+  wb_region: "Africa", // High delay region (26.7% delay rate)
+  practice_group: "Infrastructure",
+  global_practice: "Water", // Highest delay rate (33.6%)
+  agreement_type: "IDA",
+  lending_instrument_type: "Investment Project Financing", // IPF - Change to DPF for BIG difference!
+  country_lending_group: "IDA",
+  implementing_agency: "Ministry of Water Resources",
+  project_name: "Urban Water Supply and Sanitation Project",
+  quality_at_entry: "Moderately Satisfactory",
+  quality_of_supervision: "Satisfactory",
+  bank_performance: "Moderately Satisfactory",
+  me_quality: "Modest",
+  approval_fy: "2015", // Pre-SDG era
   is_multi_country: false,
 };
 
