@@ -7,7 +7,6 @@ import sizeVsDelayImg from "./assets/aiddata/SIZE VS DELAY.png";
 import shapValuesImg from "./assets/aiddata/shap values.png";
 import newplotImg from "./assets/aiddata/newplot.png";
 
-
 import iegResidualDisribution from "./assets/ieg/ieg_residual_distribution.png";
 import iegResidualByRegion from "./assets/ieg/ieg_residual_by_region.png";
 import shapOverall from "./assets/ieg/shap_ieg.png";
@@ -774,8 +773,8 @@ function App() {
                   Model expects completion around{" "}
                   <strong>{prediction.predicted_end_date}</strong>. Your
                   proposed end date implies a schedule residual of{" "}
-                  <strong>{prediction.residual_estimate} days</strong>{" "}
-                  (proposed − model).
+                  <strong>{prediction.residual_estimate} days</strong> (proposed
+                  − model).
                 </div>
 
                 <div
@@ -788,12 +787,18 @@ function App() {
                   Delay risk classifications:
                 </div>
 
-                <RiskBadge label="Z-score" value={prediction.delay_classification.zscore} />
+                <RiskBadge
+                  label="Z-score"
+                  value={prediction.delay_classification.zscore}
+                />
                 <RiskBadge
                   label="Percentile"
                   value={prediction.delay_classification.percentile}
                 />
-                <RiskBadge label="IQR" value={prediction.delay_classification.iqr} />
+                <RiskBadge
+                  label="IQR"
+                  value={prediction.delay_classification.iqr}
+                />
               </div>
 
               <div>
@@ -876,9 +881,22 @@ function App() {
               imageSrc={card.imageSrc}
             />
           ))}
-
         </div>
       </section>
+      {/* Footer */}
+      <footer
+        style={{
+          marginTop: "40px",
+          padding: "16px 0",
+          textAlign: "center",
+          fontSize: "12px",
+          color: "#64748b",
+          opacity: 0.9,
+        }}
+      >
+        • © {new Date().getFullYear()} <strong> Built by Yashika Ahlawat, Avish Kaushik | George Washington University</strong>  •
+     
+      </footer>
     </div>
   );
 }
